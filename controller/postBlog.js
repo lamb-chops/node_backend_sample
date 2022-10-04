@@ -13,7 +13,10 @@ postBlog = (req, res) => {
   const blog = new Blog(body)
 
   if (!blog) {
-    return res.status(400).json({ success: false, error: err })
+    return res.status(400).json({
+      success: false,
+      error: err
+    })
   }
 
   blog
