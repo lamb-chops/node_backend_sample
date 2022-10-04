@@ -11,7 +11,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.json())
 
-db.on('error', console.log('Error! Failed to connect to MongoDB.'))
+db.on('error', () => {
+    console.log('Error! Failed to connect to MongoDB.')
+})
+
 app.use('/api', routes)
 
 app.listen(port, () => {
